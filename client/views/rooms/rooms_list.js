@@ -32,7 +32,8 @@
                 $scope.rooms = response.data.rooms;
             });
 
-            socket.on('bGlobalChat', function(data){
+            socket.off('globalChat');
+            socket.on('globalChat', function(data){
                 $scope.messages.unshift(data);
                 $scope.messages = $scope.messages.slice(0, 100);
                 $scope.message = null;
